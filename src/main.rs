@@ -4,7 +4,9 @@ extern crate gdk;
 use gtk::prelude::*;
 use gtk::{Window, WindowType, Stack, StackSwitcher, Box, Orientation};
 
-mod stack_mod;
+mod programs;
+mod firewall;
+mod hosts;
 
 fn main() {
     if gtk::init().is_err() {
@@ -48,9 +50,9 @@ fn box_structure() -> Box {
 
  fn stack_manager() -> Stack {
     let stack = Stack::new();
-    stack.add_titled(&stack_mod::programs_stack(), "Programs", "Programs");
-    stack.add_titled(&stack_mod::firewall_stack(), "Firewall", "Firewall");
-    stack.add_titled(&stack_mod::hosts_stack(), "Forbiden webs", "Forbiden webs");
+    stack.add_titled(&programs::get_box(), "Programs", "Programs");
+    stack.add_titled(&firewall::get_box(), "Firewall", "Firewall");
+    stack.add_titled(&hosts::get_box(), "Forbiden webs", "Forbiden webs");
 
     return stack;
 }
