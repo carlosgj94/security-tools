@@ -46,9 +46,39 @@ fn box_structure() -> Box {
 
 fn stack_manager() -> Stack {
     let stack = Stack::new();
-    stack.add_titled(&Label::new("Programs"), "Programs", "Programs");
-    stack.add_titled(&Label::new("Firewall"), "Firewall", "Firewall");
-    stack.add_titled(&Label::new("Forbiden webs"), "Forbiden webs", "Forbiden webs");
+    stack.add_titled(&programs_stack(), "Programs", "Programs");
+    stack.add_titled(&firewall_stack(), "Firewall", "Firewall");
+    stack.add_titled(&hosts_stack(), "Forbiden webs", "Forbiden webs");
 
     return stack;
+}
+
+fn programs_stack() -> Box {
+    let v_box = Box::new(Orientation::Vertical, 10);
+    let h_box = Box::new(Orientation::Horizontal, 10);
+
+    h_box.pack_start(&Label::new("Programs"), true, false, 0);
+    v_box.pack_start(&h_box, false, false, 0);
+
+    return v_box;
+}
+
+fn firewall_stack() -> Box {
+    let v_box = Box::new(Orientation::Vertical, 10);
+    let h_box = Box::new(Orientation::Horizontal, 10);
+
+    h_box.pack_start(&Label::new("Firewall"), true, false, 0);
+    v_box.pack_start(&h_box, false, false, 0);
+
+    return v_box;
+}
+
+fn hosts_stack() -> Box {
+    let v_box = Box::new(Orientation::Vertical, 10);
+    let h_box = Box::new(Orientation::Horizontal, 10);
+
+    h_box.pack_start(&Label::new("Forbiden Webs"), true, false, 0);
+    v_box.pack_start(&h_box, false, false, 0);
+
+    return v_box;
 }
