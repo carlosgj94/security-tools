@@ -1,0 +1,8 @@
+[package]
+name = "security-tools"
+version = "0.1.0"
+authors = ["Carlos Gonzalez <carlosgj94@gmail.com>"]
+
+[dependencies]
+gtk = { git = "https://github.com/gtk-rs/gtk", features = ["v3_14"] }
+gdk = { git = "https://github.com/gtk-rs/gdk" }
