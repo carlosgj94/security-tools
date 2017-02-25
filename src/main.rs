@@ -16,7 +16,7 @@ fn main() {
 
     let window = Window::new(WindowType::Toplevel);
     window.set_title("First GTK+ Program");
-    window.set_default_size(950, 700);
+    window.set_default_size(850, 700);
     
     //Header
     let header = HeaderBar::new();
@@ -34,12 +34,12 @@ fn main() {
 
     //Main box
     let v_box = Box::new(Orientation::Vertical, 10);
-    let h_box = Box::new(Orientation::Horizontal, 50);
+    //let h_box = Box::new(Orientation::Horizontal, 50);
 
     //h_box.pack_start(&stack_switcher, true, false, 50);
     header.pack_start(&header_box);
-    v_box.pack_start(&h_box, false, false, 15);
-    v_box.pack_start(&stack, true, true, 20);
+    //v_box.pack_start(&h_box, false, false, 15);
+    v_box.pack_start(&stack, true, true, 0);
    
     //Add the box to the window
     window.add(&v_box);
